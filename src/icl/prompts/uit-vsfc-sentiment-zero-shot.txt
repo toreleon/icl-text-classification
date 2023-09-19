@@ -1,0 +1,3 @@
+Please read the following text and classify its sentiment as either positive, negative, or neutral.
+
+Input Text: {}

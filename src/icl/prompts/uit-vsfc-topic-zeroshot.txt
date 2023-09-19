@@ -1,0 +1,3 @@
+Please read the following text and classify its topic as either lecturer, curriculum, facility, or others.
+
+Input Text: {}

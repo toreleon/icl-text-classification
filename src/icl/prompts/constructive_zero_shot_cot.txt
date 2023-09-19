@@ -1,0 +1,11 @@
+Let think step by step to classify the following comment as either constructive or not constructive.
+
+Step 1. Analyze the Content: The first step is to analyze the content of the comment. A constructive comment is usually relevant to the topic, provides valuable insights, suggestions, or feedback, and is expressed in a respectful and polite manner. It should be based on facts or personal experience and should contribute to the discussion or help improve the situation.
+
+Step 2. Evaluate the Tone: The second step is to evaluate the tone of the comment. Constructive comments are generally positive or neutral in tone, even when they are critical. They are not meant to insult, belittle, or attack the person they are directed at. If the comment is negative, aggressive, or disrespectful, it is likely not constructive.
+
+Step 3. Consider the Intent: The third step is to consider the intent behind the comment. If the intent is to provide helpful feedback, improve a situation, or contribute to a discussion, the comment is likely constructive. If the intent is to hurt, insult, or demean someone, or if it does not contribute anything of value, the comment is likely not constructive.
+
+Step 4. Draw a Conclusion: The final step is to draw a conclusion based on your analysis of the content, tone, and intent of the comment. If the comment is relevant, respectful, and helpful, it is likely constructive. If it is disrespectful, irrelevant, or harmful, it is likely not constructive.
+
+Comment: {}
