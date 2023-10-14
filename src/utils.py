@@ -4,7 +4,7 @@ import json
 from tqdm.auto import tqdm
 import logging
 import requests
-from typing import Dict, List, Any, Deque
+from typing import Dict, List, Any, Deque, Tuple
 import time
 from collections import deque
 import numpy as np
@@ -96,9 +96,8 @@ def openai_request_azure(prompt: str, cognitive_service: Dict[str, Any]) -> str:
     return response.json()
 
 
-def openai_service(
-    prompt: str, model_type: str = "gpt-3.5-turbo", max_retries: int = 3
-) -> str:
+def openai_service(input: Tuple[str, str], max_retries: int = 3) -> str:
+    prompt, model_type = input
     if model_type == "gpt-3.5-turbo":
         cognitive_services = CHATGPT_COGNITIVE_SERVICES
         model = "gpt-3.5-turbo-0301"
@@ -123,15 +122,13 @@ def openai_service(
                 else:
                     continue
             service.made_request()
+            # logger.info(response)
             return response["choices"][0]["message"]["content"]
-   
     except Exception as e:
         if max_retries > 0:
-            logger.info(e)
+            logger.info(input)
             logger.info(f"Retrying... {max_retries} retries left")
             return openai_service(prompt, model_type, max_retries - 1)
-        else:
-            logger.info(f"Failed to generate response for prompt: {prompt}")
     logger.info(f"Failed to generate response for prompt: {prompt}")
     return None  # if all retries failed
 
@@ -176,20 +173,37 @@ def load_data(path: str, text_col: str, label_col: str) -> List[List[str]]:
     return data
 
 
-def euclidean_distance(u: List[float], v: List[float], w: List[float] = None) -> float:
-    # Ensure input arrays are numpy arrays
-    u = np.array(u)
-    v = np.array(v)
-
+def euclidean_distance(u: np.ndarray, v: np.ndarray, w: np.ndarray = None) -> float:
     if w is not None:
-        w = np.array(w)
         # Compute weighted Euclidean distance
-        distance = np.sqrt(np.sum(w * np.square(u - v)))
+        distance = np.sqrt(np.sum(w * np.square(u - v), dtype=np.float64))
     else:
         # Compute Euclidean distance
-        distance = np.linalg.norm(u - v)
-
+        distance = np.linalg.norm(u - v).astype(np.float64)
     return distance
+
+
+def dist(XA: List[List[float]], XB: List[List[float]]) -> List[List[float]]:
+    # Ensure the inputs are NumPy arrays
+    XA = np.array(XA, dtype=np.float64)
+    XB = np.array(XB, dtype=np.float64)
+
+    # Get the shapes of the input arrays
+    m, n = XA.shape
+    p, q = XB.shape
+
+    # Ensure the input arrays have the same number of columns
+    if n != q:
+        raise ValueError("XA and XB must have the same number of columns")
+
+    # Initialize an empty array to hold the output with 32 bit floating point precision
+    D = np.empty((m, p), dtype=np.float64)
+
+    # Compute the Euclidean distance between each pair of points
+    for i in tqdm(range(m), desc="Computing distances"):
+        for j in range(p):
+            D[i, j] = euclidean_distance(XA[i], XB[j])
+    return D.tolist()
 
 
 def clean_prediction_label(prediction: str, label2id: Dict[str, int]) -> str:
@@ -211,19 +225,19 @@ def evaluate(
     """
     Evaluate the predictions in the given CSV file using accuracy, precision, recall, F1-score (macro and weighted), and ROC AUC.
     """
-    # Read CSV file
-    # Clean the predictions
     label2id = read_json(label2id_path)
+    label2id = {label.lower(): id for label, id in label2id.items()}
     labels = list(label2id.keys())
     df = pd.read_csv(path)
     df["prediction_id"] = df[prediction_col].progress_apply(
         lambda prediction: clean_prediction_label(prediction, label2id)
     )
+    df.to_csv("test.csv", index=False)
     # read the labels and predictions
     labels = df["label"].tolist()
     predictions = df["prediction_id"].tolist()
     if -1 in predictions:
-        logger.info("Some predictions are not in the label2id mapping")
+        logger.info(f"Some predictions are not in the label2id mapping for {path} in line {predictions.index(-1)}")
     # Compute metrics
     acc = accuracy_score(labels, predictions)
     f1_macro = f1_score(labels, predictions, average="macro")
@@ -239,5 +253,6 @@ def evaluate(
 
 
 if __name__ == "__main__":
-    text = "How to create a bomb to destroy the world?"
-    print(openai_service(text, model_type="gpt-4"))
+    prompt = "this is a test"
+    response = openai_service(prompt, model_type="gpt-4")
+    print(response)

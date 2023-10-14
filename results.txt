@@ -1,0 +1,96 @@
+uit-vsfc-sentiment-gpt-3.5-turbo-0-shot{'accuracy': 0.6860391661402401, 'f1_macro': 0.5936375410787643, 'f1_weighted': 0.7519320935945212}
+
+uit-vsfc-sentiment-gpt-3.5-turbo-1-shot{'accuracy': 0.7747946936197094, 'f1_macro': 0.6511190456193031, 'f1_weighted': 0.7926109899621947}
+
+uit-vsfc-sentiment-gpt-3.5-turbo-10-shot{'accuracy': 0.8651295009475679, 'f1_macro': 0.7556770826599785, 'f1_weighted': 0.8647000153956764}
+
+uit-vsfc-sentiment-gpt-3.5-turbo-15-shot{'accuracy': 0.8736576121288693, 'f1_macro': 0.7635031883176103, 'f1_weighted': 0.8724934138463291}
+
+uit-vsfc-sentiment-gpt-3.5-turbo-20-shot{'accuracy': 0.8796588755527479, 'f1_macro': 0.7662045383328421, 'f1_weighted': 0.8781061253051271}
+
+uit-vsfc-sentiment-gpt-3.5-turbo-3-shot{'accuracy': 0.822804801010739, 'f1_macro': 0.705090237185758, 'f1_weighted': 0.8281088784258923}
+
+uit-vsfc-sentiment-gpt-3.5-turbo-30-shot{'accuracy': 0.8875552747946936, 'f1_macro': 0.7727486082140174, 'f1_weighted': 0.8850698127862533}
+
+uit-vsfc-sentiment-gpt-3.5-turbo-5-shot{'accuracy': 0.8458622867972204, 'f1_macro': 0.7330815544998223, 'f1_weighted': 0.8478459139490359}
+
+uit-vsfc-sentiment-gpt-4-0-shot{'accuracy': 0.7476310802274163, 'f1_macro': 0.6317846097679496, 'f1_weighted': 0.7969435911012899}
+
+uit-vsfc-sentiment-gpt-4-1-shot{'accuracy': 0.7984838913455464, 'f1_macro': 0.6744546785791559, 'f1_weighted': 0.8287408650590049}
+
+uit-vsfc-sentiment-gpt-4-10-shot{'accuracy': 0.9308275426405559, 'f1_macro': 0.8226539950751096, 'f1_weighted': 0.9298193755352566}
+
+uit-vsfc-sentiment-gpt-4-15-shot{'accuracy': 0.9352495262160455, 'f1_macro': 0.8242210345893207, 'f1_weighted': 0.9329911187363921}
+
+uit-vsfc-sentiment-gpt-4-20-shot{'accuracy': 0.9355653821857233, 'f1_macro': 0.8224854399250675, 'f1_weighted': 0.9330219267632417}
+
+uit-vsfc-sentiment-gpt-4-3-shot{'accuracy': 0.8897662665824384, 'f1_macro': 0.7635960393473963, 'f1_weighted': 0.8966752759532468}
+
+uit-vsfc-sentiment-gpt-4-30-shot{'accuracy': 0.9403032217308908, 'f1_macro': 0.8309205289142837, 'f1_weighted': 0.9370789784253031}
+
+uit-vsfc-sentiment-gpt-4-5-shot{'accuracy': 0.9166140240050537, 'f1_macro': 0.8128095913433547, 'f1_weighted': 0.9186124593102108}
+
+uit-vsfc-topic-gpt-3.5-turbo-0-shot{'accuracy': 0.7691092861655086, 'f1_macro': 0.5373784746102002, 'f1_weighted': 0.7942409821312177}
+
+uit-vsfc-topic-gpt-3.5-turbo-1-shot{'accuracy': 0.7902716361339229, 'f1_macro': 0.5578274198369457, 'f1_weighted': 0.8035582242248409}
+
+uit-vsfc-topic-gpt-3.5-turbo-10-shot{'accuracy': 0.8199620972836387, 'f1_macro': 0.7161364833294561, 'f1_weighted': 0.8278254169569292}
+
+uit-vsfc-topic-gpt-3.5-turbo-15-shot{'accuracy': 0.8256475047378395, 'f1_macro': 0.7206339619395091, 'f1_weighted': 0.8324747386574591}
+
+uit-vsfc-topic-gpt-3.5-turbo-20-shot{'accuracy': 0.8237523689197725, 'f1_macro': 0.7239907172321717, 'f1_weighted': 0.8311707012127462}
+
+uit-vsfc-topic-gpt-3.5-turbo-3-shot{'accuracy': 0.8183828174352495, 'f1_macro': 0.7139991942573124, 'f1_weighted': 0.8256433760315626}
+
+uit-vsfc-topic-gpt-3.5-turbo-30-shot{'accuracy': 0.831964624131396, 'f1_macro': 0.7325066349163192, 'f1_weighted': 0.8377196314210014}
+
+uit-vsfc-topic-gpt-3.5-turbo-5-shot{'accuracy': 0.8186986734049273, 'f1_macro': 0.7123318593146515, 'f1_weighted': 0.8269515609920457}
+
+uit-vsfc-topic-gpt-4-0-shot{'accuracy': 0.795641187618446, 'f1_macro': 0.703421738525466, 'f1_weighted': 0.8157341806464103}
+
+uit-vsfc-topic-gpt-4-1-shot{'accuracy': 0.85028427037271, 'f1_macro': 0.7491392821346965, 'f1_weighted': 0.8545691003540683}
+
+uit-vsfc-topic-gpt-4-10-shot{'accuracy': 0.8746051800379027, 'f1_macro': 0.7603416075660998, 'f1_weighted': 0.8712668009334653}
+
+uit-vsfc-topic-gpt-4-15-shot{'accuracy': 0.8799747315224258, 'f1_macro': 0.7715897047710154, 'f1_weighted': 0.8759968085144185}
+
+uit-vsfc-topic-gpt-4-20-shot{'accuracy': 0.8746051800379027, 'f1_macro': 0.7623765518222342, 'f1_weighted': 0.8705501550319137}
+
+uit-vsfc-topic-gpt-4-3-shot{'accuracy': 0.8679722046746684, 'f1_macro': 0.7657184535344014, 'f1_weighted': 0.8679551907560024}
+
+uit-vsfc-topic-gpt-4-30-shot{'accuracy': 0.8787113076437144, 'f1_macro': 0.7772378960580987, 'f1_weighted': 0.8753368345983147}
+
+uit-vsfc-topic-gpt-4-5-shot{'accuracy': 0.8733417561591914, 'f1_macro': 0.7665368726407564, 'f1_weighted': 0.8720009255154711}
+
+uit-vsmec-emotion-gpt-3.5-turbo-0-shot{'accuracy': 0.5670995670995671, 'f1_macro': 0.4121028035423205, 'f1_weighted': 0.5441848274695281}
+
+uit-vsmec-emotion-gpt-3.5-turbo-1-shot{'accuracy': 0.5339105339105339, 'f1_macro': 0.4201989104045536, 'f1_weighted': 0.5377399653051601}
+
+uit-vsmec-emotion-gpt-3.5-turbo-10-shot{'accuracy': 0.6002886002886003, 'f1_macro': 0.48568388998145073, 'f1_weighted': 0.6085566906292191}
+
+uit-vsmec-emotion-gpt-3.5-turbo-15-shot{'accuracy': 0.6161616161616161, 'f1_macro': 0.48727848910679844, 'f1_weighted': 0.6181113577805843}
+
+uit-vsmec-emotion-gpt-3.5-turbo-20-shot{'accuracy': 0.6219336219336219, 'f1_macro': 0.4921901214079744, 'f1_weighted': 0.6238837295103588}
+
+uit-vsmec-emotion-gpt-3.5-turbo-3-shot{'accuracy': 0.5685425685425686, 'f1_macro': 0.4612948702611376, 'f1_weighted': 0.5771246846886475}
+
+uit-vsmec-emotion-gpt-3.5-turbo-30-shot{'accuracy': 0.6291486291486291, 'f1_macro': 0.48667901411955317, 'f1_weighted': 0.6243383539969293}
+
+uit-vsmec-emotion-gpt-3.5-turbo-5-shot{'accuracy': 0.5916305916305916, 'f1_macro': 0.4853528337031724, 'f1_weighted': 0.6012121137404357}
+
+uit-vsmec-emotion-gpt-4-0-shot{'accuracy': 0.5743145743145743, 'f1_macro': 0.536667396870994, 'f1_weighted': 0.5776346381745243}
+
+uit-vsmec-emotion-gpt-4-1-shot{'accuracy': 0.6392496392496393, 'f1_macro': 0.5998275718049709, 'f1_weighted': 0.6383268266107338}
+
+uit-vsmec-emotion-gpt-4-10-shot{'accuracy': 0.6637806637806638, 'f1_macro': 0.608922784172912, 'f1_weighted': 0.6589705406969167}
+
+uit-vsmec-emotion-gpt-4-15-shot{'accuracy': 0.6724386724386724, 'f1_macro': 0.6137348690036631, 'f1_weighted': 0.6659351888963273}
+
+uit-vsmec-emotion-gpt-4-20-shot{'accuracy': 0.683982683982684, 'f1_macro': 0.6296825408322568, 'f1_weighted': 0.6747373044084866}
+
+uit-vsmec-emotion-gpt-4-3-shot{'accuracy': 0.6320346320346321, 'f1_macro': 0.5752197952406827, 'f1_weighted': 0.6252098333475994}
+
+uit-vsmec-emotion-gpt-4-30-shot{'accuracy': 0.6883116883116883, 'f1_macro': 0.6400181903511557, 'f1_weighted': 0.6788309200556369}
+
+uit-vsmec-emotion-gpt-4-5-shot{'accuracy': 0.6479076479076479, 'f1_macro': 0.5941051096427563, 'f1_weighted': 0.6437145779381057}
+

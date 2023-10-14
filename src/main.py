@@ -1,6 +1,6 @@
+import os
 import logging.config
 from icl.few_shot import FewShotInference
-from icl.zero_shot import ZeroShotInference
 from utils import evaluate
 
 # load the logging configuration from logging.ini
@@ -9,30 +9,15 @@ logger = logging.getLogger(__name__)
 
 
 class CFG:
-    K: int = 3
-    prompt_path: str = "src/icl/prompts/uit-vsfc-sentiment-few-shot.txt"
-    dataset: str = "uit-vsfc"
-    text_col: str = "sentence"
-    label_col: str = "sentiment"
-    max_workers: int = 8
-    model_type: str = "gpt-4"
-    id2label_path: str = "data/uit-vsfc/sentiment_id2label.json"
-    label2id_path: str = "data/uit-vsfc/sentiment_label2id.json"
+    dataset: str = "uit-victsd"
+    text_col: str = "comment"
+    label_col: str = "constructiveness"
+    max_workers: int = 17
+    model_type: str = "gpt-3.5-turbo"
+    prompt_path: str = f"src/icl/prompts/{dataset}-{label_col}-few-shot.txt"
+    id2label_path: str = f"data/{dataset}/constructiveness_id2label.json"
+    label2id_path: str = f"data/{dataset}/constructiveness_label2id.json"
 
-
-# model = ZeroShotInference(
-#     data_path=f"data/{CFG.dataset}/{CFG.dataset}-test.csv",
-#     prompt_path="src/icl/prompts/uit-vsfc-topic-zeroshot.txt",
-#     text_col=CFG.text_col,
-#     label_col=CFG.label_col,
-#     max_workers=CFG.max_workers,
-#     model_type=CFG.model_type,
-# )
-
-# model.generate_predictions()
-# model.save_predictions(
-#     f"results/{CFG.dataset}-{CFG.label_col}-{CFG.model_type}-zero-shot-trial-0.csv"
-# )
 
 model = FewShotInference(
     data_path=f"data/{CFG.dataset}/{CFG.dataset}-test.csv",
@@ -45,16 +30,38 @@ model = FewShotInference(
     model_type=CFG.model_type,
 )
 
-model.generate_predictions(k=CFG.K)
-model.save_predictions(
-    f"results/{CFG.dataset}-{CFG.label_col}-{CFG.model_type}-{CFG.K}-shot.csv"
-)
-
-
-print(
-    evaluate(
-        f"results/{CFG.dataset}-{CFG.label_col}-{CFG.model_type}-{CFG.K}-shot.csv",
-        "prediction",
-        CFG.label2id_path,
+for k in [30]:
+    model.generate_predictions(k)
+    model.save_predictions(
+        f"results/{CFG.dataset}-{CFG.label_col}-{CFG.model_type}-{k}-shot.csv"
     )
-)
+    print(
+        f'{CFG.dataset}-{CFG.label_col}-{CFG.model_type}-{k}-shot:{evaluate(f"results/{CFG.dataset}-{CFG.label_col}-{CFG.model_type}-{k}-shot.csv","prediction", CFG.label2id_path)}'
+    )
+
+# print(
+#     f'{CFG.dataset}-{CFG.label_col}-{CFG.model_type}-0-shot:{evaluate(f"results/{CFG.dataset}-{CFG.label_col}-{CFG.model_type}-0-shot.csv","prediction", CFG.label2id_path)}'
+# )
+
+
+# files = os.listdir("results/")
+# # Sort files by name
+# files.sort()
+# for file in files:
+#     # Write the results to the results.txt
+#     if file.endswith(".csv"):
+#         if "uit-vsmec" in file:
+#             label2id_path = "data/uit-vsmec/emotion_label2id.json"
+#         elif "uit-vsfc" in file:
+#             if "sentiment" in file:
+#                 label2id_path = "data/uit-vsfc/sentiment_label2id.json"
+#             else:
+#                 label2id_path = "data/uit-vsfc/topic_label2id.json"
+#         with open("results.txt", "a") as f:
+#             f.write(file.replace(".csv", "") + str(evaluate(
+#                     f"results/{file}",
+#                     "prediction",
+#                     label2id_path,
+#                 ))
+#             )
+#             f.write("\n\n")

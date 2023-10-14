@@ -1,0 +1,5 @@
+Please read the following text and classify its emotion as either anger, disgust, enjoyment, fear, sadness, surprise, or others.
+
+{}
+
+{}
